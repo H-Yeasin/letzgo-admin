@@ -1,0 +1,118 @@
+/* ─── Design Tokens: Bitcoin DeFi Dark ──────────────────────────────── */
+/* Every color, font, spacing, radius, and shadow value is defined here. */
+/* NO hardcoded values in other CSS files — always reference a token.   */
+
+:root {
+  /* ── Surfaces ───────────────────────────────────────────────────── */
+  --color-bg: #030304;
+  --color-surface: #0F1115;
+  --color-surface-hover: #1A1D24;
+  --color-surface-elevated: #1E2028;
+
+  /* ── Foreground ─────────────────────────────────────────────────── */
+  --color-fg: #FFFFFF;
+  --color-fg-muted: #94A3B8;
+  --color-fg-dim: #64748B;
+
+  /* ── Borders ────────────────────────────────────────────────────── */
+  --color-border: #1E293B;
+  --color-border-light: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+
+  /* ── Brand / Accents ────────────────────────────────────────────── */
+  --color-primary: #F7931A;
+  --color-primary-hover: #E67E00;
+  --color-primary-muted: rgba(247, 147, 26, 0.12);
+  --color-primary-glow: rgba(247, 147, 26, 0.35);
+  --color-secondary: #EA580C;
+  --color-tertiary: #FFD600;
+
+  /* ── Semantic ───────────────────────────────────────────────────── */
+  --color-success: #22C55E;
+  --color-success-muted: rgba(34, 197, 94, 0.12);
+  --color-warning: #F59E0B;
+  --color-warning-muted: rgba(245, 158, 11, 0.12);
+  --color-danger: #EF4444;
+  --color-danger-muted: rgba(239, 68, 68, 0.12);
+  --color-info: #3B82F6;
+  --color-info-muted: rgba(59, 130, 246, 0.12);
+
+  /* ── Gradients ──────────────────────────────────────────────────── */
+  --gradient-primary: linear-gradient(to right, #EA580C, #F7931A);
+  --gradient-gold: linear-gradient(to right, #F7931A, #FFD600);
+  --gradient-surface: linear-gradient(145deg, #0F1115, #1A1D24);
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ── Spacing (4px grid) ─────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── Radii ──────────────────────────────────────────────────────── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow-orange: 0 0 20px rgba(247, 147, 26, 0.25);
+  --shadow-glow-gold: 0 0 20px rgba(255, 214, 0, 0.2);
+
+  /* ── Layout ─────────────────────────────────────────────────────── */
+  --sidebar-width: 260px;
+
+  /* ── Transitions ────────────────────────────────────────────────── */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Utility: Gradient Text ───────────────────────────────────────── */
+.glow-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text-orange {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Utility: Font families ───────────────────────────────────────── */
+.font-heading { font-family: var(--font-heading); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
