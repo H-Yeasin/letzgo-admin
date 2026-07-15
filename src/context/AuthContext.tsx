@@ -4,7 +4,7 @@ import { adminLogin } from '../api/admin';
 interface AuthContextType {
     token: string | null;
     isAuthenticated: boolean;
-    login: (phone: string, otp: string) => Promise<void>;
+    login: (phone: string, password: string) => Promise<void>;
     logout: () => void;
     loading: boolean;
     error: string | null;
@@ -17,11 +17,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const login = async (phone: string, otp: string) => {
+    const login = async (phone: string, password: string) => {
         setLoading(true);
         setError(null);
         try {
-            const res = await adminLogin(phone, otp);
+            const res = await adminLogin(phone, password);
             localStorage.setItem('admin_token', res.access_token);
             setToken(res.access_token);
         } catch (err: any) {
