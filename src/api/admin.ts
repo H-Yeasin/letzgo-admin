@@ -97,8 +97,8 @@ export interface BlockUnblockResponse {
 
 // ─── Auth ─────────────────────────────────────────────────────────────────────
 
-export async function adminLogin(phone: string, otp: string): Promise<{ access_token: string }> {
-    const res = await apiClient.post('/auth/admin-login', { phone, otp });
+export async function adminLogin(phone: string, password: string): Promise<{ access_token: string }> {
+    const res = await apiClient.post('/auth/admin-login', { phone, password });
     return res.data;
 }
 
