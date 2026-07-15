@@ -14,8 +14,6 @@ dist-ssr
 
 # Editor directories and files
 <<<<<<< HEAD
-.vscode/*
-!.vscode/extensions.json
 =======
 >>>>>>> f6ed536a4506d1d8992ef8ddbc66f2ab0ee787b3
 .idea

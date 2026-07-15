@@ -342,6 +342,35 @@ body::before {
   color: rgba(255, 255, 255, 0.25);
 }
 
+.phone-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.phone-input-group .phone-prefix {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 var(--space-3);
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  user-select: none;
+  transition: border-color var(--transition-fast);
+}
+
+.phone-input-group input {
+  flex: 1;
+  min-width: 0;
+  padding-left: 0;
+}
+
+.phone-input-group:focus-within .phone-prefix {
+  border-bottom-color: var(--color-primary);
+}
+
 .filter-select {
   cursor: pointer;
   appearance: none;
