@@ -7,14 +7,22 @@ import GradientButton from '../components/ui/GradientButton';
 
 export default function LoginPage() {
   const [phone, setPhone] = useState('');
-  const [otp, setOtp] = useState('');
+  const [password, setPassword] = useState('');
   const { login, loading, error } = useAuth();
   const navigate = useNavigate();
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Keep only the 10-digit local part: strip non-digits, a pasted 880
+    // country code, and any leading 0 (+880 prefix already covers both)
+    let digits = e.target.value.replace(/\D/g, '');
+    if (digits.startsWith('880') && digits.length > 10) digits = digits.slice(3);
+    setPhone(digits.replace(/^0+/, '').slice(0, 10));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(phone, otp);
+      await login('880' + phone, password);
       navigate('/dashboard');
     } catch {
       // Error is handled in AuthContext
@@ -43,22 +51,29 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Phone Number</label>
-            <input
-              type="text"
-              placeholder="+8801XXXXXXXXX"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-              style={{ width: '100%' }}
-            />
+            <div className="phone-input-group">
+              <span className="phone-prefix">+880</span>
+              <input
+                type="tel"
+                inputMode="numeric"
+                autoComplete="username"
+                placeholder="1XXXXXXXXX"
+                value={phone}
+                onChange={handlePhoneChange}
+                pattern="[0-9]{10}"
+                title="10-digit number after +880 (without the leading 0)"
+                required
+              />
+            </div>
           </div>
           <div className="form-group">
-            <label>OTP</label>
+            <label>Password</label>
             <input
-              type="text"
-              placeholder="Enter OTP"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
+              type="password"
+              autoComplete="current-password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               style={{ width: '100%' }}
             />
